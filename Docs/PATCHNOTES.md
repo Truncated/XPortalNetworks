@@ -1,3 +1,11 @@
+# 2.0.13 - UI Interaction & Font Warning Hardening
+* **UI Mouse Interaction Hardening (`UI/PortalConfigurationPanel.cs`)**:
+  * Removed redundant `CanvasGroup` component attachment on `mainPanel`. Previously, `UIGroupHandler` evaluated `IsHighestPriority()` and set `m_canvasGroup.interactable = false` whenever another active UI component in the scene claimed priority, causing all child UI elements (buttons, dropdowns, input fields, toggles) to become completely non-interactive to mouse clicks. Removing `CanvasGroup` ensures mouse interaction cannot be suppressed by UI group priority conflicts.
+* **TMP Font Fallback Warning Hardening (`UI/UIFonts.cs`, `UI/PortalConfigurationPanel.cs`)**:
+  * Hardened `UIFonts.GetAveriaSansFont()` to query Jotunn's cached `GUIManager.Instance.TMP_AveriaSansLibre` and active `Hud.instance.m_hoverName.font` before falling back to `Resources.FindObjectsOfTypeAll<TMP_FontAsset>()`.
+  * Ensured `UIFonts.EnsureDefaultFont(font)` sets `TMP_Settings.defaultFontAsset` in `InitialiseUI()` and before `AddComponent<TextMeshProUGUI>()` in `CreateGamepadHint`, eliminating the 8 consecutive `The LiberationSans SDF Font Asset was not found` warnings on portal UI initialization.
+  * Converted local variables to explicit typing in `AddGamepadHint`, `AttachDropdownListNavHint`, and `CreateGamepadHint`.
+
 # 2.0.12 - UI Interaction Hardening & Legacy Mod Coexistence
 * **UI Priority & Escape Key Fallback (`UI/PortalConfigurationPanel.cs`)**:
   * Elevated `mainPanel`'s `UIGroupHandler.m_groupPriority` to `100`, preventing background HUDs and third-party mod panels from deactivating its `CanvasGroup.interactable` state.
