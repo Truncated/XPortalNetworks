@@ -1,45 +1,39 @@
 ---
 name: Bug report
-about: Create a report to help XPortal improve
+about: Create a report to help us improve and fix issues
 title: ''
-labels: bug
-assignees: ''
+labels: 'bug'
+assignees: Vapok
 
 ---
 
+### ⚠️ MANDATORY: Session Log (`LogOutput.log`)
+*You MUST attach the `LogOutput.log` file from the exact gaming session where this issue occurred.*
+*If on a Dedicated Server, please attach **BOTH** the client log and the server log.*
+
+- [ ] I have attached the complete `LogOutput.log` file (drag and drop file here, or link a Gist)
+
 **Describe the bug**
-Write a clear and concise description of what's going wrong.
+A clear and concise description of what the bug is.
 
-**To Reproduce**
-Explain the steps needed to reproduce the behaviour.
+**Steps to Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-**Expected behaviour**
-Describe what you expected to happen (if it's not obvious).
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-**LogOutput file(s)**
-Please have `Debug` output enabled. Attach the file called `LogOutput.log` which can be found in the directory `Valheim\BepInEx\`.
-If you play on a server, include the server's `LogOutput.log` as well.
+**Environment & Setup:**
+- Game Version:
+- Mod Version:
+- Play Mode: [e.g. Solo / Local, Player-Hosted Listen Server, Dedicated Server]
+- Mod Manager / Profile: [e.g. Gale / r2modman / Thunderstore / Manual]
 
-**Version**
-Which version of XPortal are you experiencing your problem with?
+**Screenshots / Video**
+If applicable, add screenshots or clips to help explain your problem.
 
-**Environment**
-Choose from the following options where you are experiencing the problem (leave only the ones you know about):
-* Dedicated server
-* Multiplayer Host (my game is the server)
-* Multiplayer Client (I joined another server/host)
-* Singleplayer
-
-**Other mods**
-Do you experience the issue also when you do not have any other mods installed? If applicable, please provide the full list of mods that you are using.
-
-**Priority**
-Estimate how important this problem is. Choose Medium if you don't know.
-* Critical (my world is suffering permanent damage from XPortal)
-* High (XPortal does not work at all anymore)
-* Medium (XPortal kind of still works, but it's not pleasant to use)
-* Low (XPortal is still working fine, but sometimes a thing goes wrong)
-
-**Additional information**
-Add any addtional information here. Anything that you think might help is appreciated.
-If applicable, add screenshots to help explain your problem.
+**Additional context**
+Add any other context about the problem or list of other installed mods here.
