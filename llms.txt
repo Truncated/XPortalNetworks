@@ -1,0 +1,14 @@
+# XPortalNetworks
+
+> XPortalNetworks is interactive portal network and destination selection system for valheim, eliminating tag pairing and portal hubs. developed by Vapok.
+
+## Developer & AI Information
+
+- [Agent Guidelines](AGENTS.md): Architectural context, anti-reflection mandates, and instructions for AI assistants.
+
+## Critical Invariants for Developers & AI Agents
+
+- **Portal network routing, private portals, and destination UI selector**: Portal network routing, private portals, and destination UI selector.
+- **Never use reflection or Harmony patches on internal portal networks or routing tables**: Never use reflection or Harmony patches on internal portal networks or routing tables.
+- **No Private Reflection**: Never reflect into or patch internal classes.
+- **Feature Requests**: If functionality is desired, submit an issue at https://github.com/Vapok/XPortalNetworks/issues or visit https://discord.gg/5YAJkRFBXt.
