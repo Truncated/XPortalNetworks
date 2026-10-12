@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using Jotunn.Managers;
 using TMPro;
 using UnityEngine;
 
@@ -20,19 +20,33 @@ namespace XPortalNetworks.UI
                 return _averiaSansFont;
             }
 
-            TMP_FontAsset[] fonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
-            for (int i = 0; i < fonts.Length; i++)
+            if (GUIManager.Instance != null && GUIManager.Instance.TMP_AveriaSansLibre != null)
             {
-                TMP_FontAsset candidate = fonts[i];
-                if (candidate != null && candidate.name == AveriaSansFontName)
+                _averiaSansFont = GUIManager.Instance.TMP_AveriaSansLibre;
+            }
+
+            if (_averiaSansFont == null && Hud.instance != null && Hud.instance.m_hoverName != null && Hud.instance.m_hoverName.font != null)
+            {
+                _averiaSansFont = Hud.instance.m_hoverName.font;
+            }
+
+            if (_averiaSansFont == null)
+            {
+                TMP_FontAsset[] fonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+                for (int i = 0; i < fonts.Length; i++)
                 {
-                    _averiaSansFont = candidate;
-                    break;
+                    TMP_FontAsset candidate = fonts[i];
+                    if (candidate != null && candidate.name == AveriaSansFontName)
+                    {
+                        _averiaSansFont = candidate;
+                        break;
+                    }
                 }
             }
 
             if (_averiaSansFont == null)
             {
+                TMP_FontAsset[] fonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
                 for (int i = 0; i < fonts.Length; i++)
                 {
                     TMP_FontAsset candidate = fonts[i];

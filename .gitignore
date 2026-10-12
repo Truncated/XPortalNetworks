@@ -378,3 +378,7 @@ FodyWeavers.xsd
 !**Docs/[Ss]olution[Dd]ir/**
 .idea
 *.DotSettings
+
+# Local / Private Maintainer Instructions
+MAINTAINER.md
+.agents/

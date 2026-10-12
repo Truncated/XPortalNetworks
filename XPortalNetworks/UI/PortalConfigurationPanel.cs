@@ -1242,6 +1242,12 @@ namespace XPortalNetworks.UI
                 return;
             }
 
+            TMP_FontAsset defaultFont = UIFonts.GetAveriaSansFont();
+            if (defaultFont != null)
+            {
+                UIFonts.EnsureDefaultFont(defaultFont);
+            }
+
             if (!mainPanel)
             {
                 // Minimum width of Main Panel so that everything fits
@@ -1265,7 +1271,6 @@ namespace XPortalNetworks.UI
                         height: 496f,
                         draggable: false);
                 mainPanel.name = GO_MAINPANEL;
-                CanvasGroup canvasGroup = mainPanel.AddComponent<CanvasGroup>();
                 UIGroupHandler groupHandler = mainPanel.AddComponent<UIGroupHandler>();
                 groupHandler.m_groupPriority = 100;
 
@@ -1641,21 +1646,21 @@ namespace XPortalNetworks.UI
 
         private void AddGamepadHint(GameObject go, string buttonName, KeyCode keyCode)
         {
-            var goGamepadHint = CreateGamepadHint(buttonName);
+            GameObject goGamepadHint = CreateGamepadHint(buttonName);
             goGamepadHint.transform.SetParent(go.transform, worldPositionStays: false);
 
-            var uiGamepad = go.AddComponent<UIGamePad>();
+            UIGamePad uiGamepad = go.AddComponent<UIGamePad>();
             uiGamepad.m_hint = goGamepadHint;
             uiGamepad.m_zinputKey = buttonName;
             uiGamepad.m_keyCode = keyCode;
 
-            var uiInputHint = go.AddComponent<UIInputHint>();
+            UIInputHint uiInputHint = go.AddComponent<UIInputHint>();
             uiInputHint.m_gamepadHint = goGamepadHint;
         }
 
         private void AttachDropdownListNavHint(GameObject dropdownObject, string hintObjectName)
         {
-            var hint = new GameObject(hintObjectName, typeof(RectTransform), typeof(Image));
+            GameObject hint = new GameObject(hintObjectName, typeof(RectTransform), typeof(Image));
             hint.transform.SetParent(dropdownObject.transform, false);
             RectTransform rt = hint.GetComponent<RectTransform>();
             rt.pivot = new Vector2(1f, 0.5f);
@@ -1663,7 +1668,7 @@ namespace XPortalNetworks.UI
             rt.anchorMax = new Vector2(0f, 0.5f);
             rt.sizeDelta = new Vector2(36f, 36f);
             rt.anchoredPosition = new Vector2(10f, 0f);
-            var img = hint.GetComponent<Image>();
+            Image img = hint.GetComponent<Image>();
             img.sprite = GUIManager.Instance.GetSprite("dpad_updown");
             img.raycastTarget = false;
             dropdownListNavHints.Add(hint);
@@ -1672,6 +1677,11 @@ namespace XPortalNetworks.UI
         private GameObject CreateGamepadHint(string buttonName)
         {
             TMP_FontAsset font = UIFonts.GetAveriaSansFont();
+            if (font != null)
+            {
+                UIFonts.EnsureDefaultFont(font);
+            }
+
             GameObject goGamepadHint = new GameObject("gamepad_hint", typeof(RectTransform));
             TextMeshProUGUI textMesh = goGamepadHint.AddComponent<TextMeshProUGUI>();
 
@@ -1683,8 +1693,8 @@ namespace XPortalNetworks.UI
             Localization.instance.textMeshStrings[textMesh] = textMesh.text;
 
             RectTransform rt = goGamepadHint.GetComponent<RectTransform>();
-            rt.pivot = new Vector2(0.5f, 0.5f); // pivot middle centre
-            rt.anchorMin = new Vector2(1f, 1f); // anchor top right
+            rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchorMin = new Vector2(1f, 1f);
             rt.anchorMax = new Vector2(1f, 1f);
             rt.offsetMin = Vector2.zero;
             rt.offsetMax = Vector2.zero;
