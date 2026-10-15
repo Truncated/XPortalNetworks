@@ -1,3 +1,8 @@
+# 2.0.14 - Dependency Updates & Valheim 1.0.20 Alignment
+* **Dependency & Engine Alignment**:
+  * Updated internalized dependency `Vapok.Valheim.Common` to 3.1020.1.
+  * Aligned game assembly references to Valheim 1.0.20.
+
 # 2.0.13 - UI Interaction & Font Warning Hardening
 * **UI Mouse Interaction Hardening (`UI/PortalConfigurationPanel.cs`)**:
   * Removed redundant `CanvasGroup` component attachment on `mainPanel`. Previously, `UIGroupHandler` evaluated `IsHighestPriority()` and set `m_canvasGroup.interactable = false` whenever another active UI component in the scene claimed priority, causing all child UI elements (buttons, dropdowns, input fields, toggles) to become completely non-interactive to mouse clicks. Removing `CanvasGroup` ensures mouse interaction cannot be suppressed by UI group priority conflicts.
