@@ -1,9 +1,13 @@
-# 2.0.13 - UI Interaction & Font Warning Hardening
-* Fixed an issue where the portal selection window could become completely unresponsive to mouse clicks and controller input.
-* Fixed harmless font warning messages appearing in the log when opening the portal menu.
+# 2.0.14 - Dependency Updates & Valheim 1.0.20 Alignment
+* **Compatibility**: Updated internal dependencies for stability and Valheim 1.0.20 compatibility.
 
 <details>
 <summary><b>2.0 Changelog History (Valheim Release)</b> (<i>click to expand</i>)</summary>
+
+
+### 2.0.13 - UI Interaction & Font Warning Hardening
+* Fixed an issue where the portal selection window could become completely unresponsive to mouse clicks and controller input.
+* Fixed harmless font warning messages appearing in the log when opening the portal menu.
 
 ### 2.0.12 - UI Interaction Hardening & Legacy Mod Coexistence
 * Fixed an issue where the portal selection window could stop responding to mouse clicks or controller input while open.
